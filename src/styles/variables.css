@@ -1,0 +1,259 @@
+/* ============================================
+   UNMESSIFY Design System v2.1
+   Light & Dark Mode Support — Teal + Amber
+   ============================================ */
+
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap");
+
+:root {
+	color-scheme: light; /* ── Brand Teal (primary) ────────────── */
+	--teal-50: #effefb;
+	--teal-100: #c8fff3;
+	--teal-200: #91fee8;
+	--teal-300: #52f5d8;
+	--teal-400: #20dfc2;
+	--teal-500: #08c4a8;
+	--teal-600: #039e8a;
+	--teal-700: #077e70;
+	--teal-800: #0b645a;
+	--teal-900: #0e524a;
+
+	/* ── Warm Amber (accent) ─────────────── */
+	--amber-50: #fffbeb;
+	--amber-100: #fef3c7;
+	--amber-200: #fde68a;
+	--amber-300: #fcd34d;
+	--amber-400: #fbbf24;
+	--amber-500: #f59e0b;
+	--amber-600: #d97706;
+	--amber-700: #b45309;
+	--amber-800: #92400e;
+	--amber-900: #78350f;
+
+	/* ── Rose (danger) ──────────────────── */
+	--rose-50: #fff1f2;
+	--rose-400: #fb7185;
+	--rose-500: #f43f5e;
+	--rose-600: #e11d48;
+
+	/* ── Emerald (success) ───────────────── */
+	--emerald-50: #ecfdf5;
+	--emerald-400: #34d399;
+	--emerald-500: #10b981;
+	--emerald-600: #059669;
+
+	/* ── Core Constants ──────────────────── */
+	--radius-sm: 8px;
+	--radius-md: 12px;
+	--radius-lg: 16px;
+	--radius-xl: 24px;
+	--radius-2xl: 32px;
+	--radius-full: 999px;
+
+	--transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+	--transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+	--transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+	--transition-spring: 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+	--font-sans: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+	--font-display: "Outfit", "DM Sans", sans-serif;
+
+	--navbar-height: 72px;
+
+	/* ── Light Mode Default Variables ────── */
+	--gradient-brand: linear-gradient(
+		135deg,
+		#08c4a8 0%,
+		#20dfc2 50%,
+		#fbbf24 100%
+	);
+	--gradient-brand-hover: linear-gradient(
+		135deg,
+		#039e8a 0%,
+		#08c4a8 50%,
+		#f59e0b 100%
+	);
+	--gradient-teal: linear-gradient(135deg, #20dfc2 0%, #039e8a 100%);
+	--gradient-warm: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+	--gradient-dark: linear-gradient(135deg, #f7f8fa 0%, #eef0f4 100%);
+	--gradient-dark-card: linear-gradient(145deg, #ffffff 0%, #f7f8fa 100%);
+
+	--gradient-mesh:
+		radial-gradient(at 15% 25%, rgba(8, 196, 168, 0.1) 0%, transparent 50%),
+		radial-gradient(at 85% 15%, rgba(251, 191, 36, 0.08) 0%, transparent 50%),
+		radial-gradient(at 50% 80%, rgba(8, 196, 168, 0.05) 0%, transparent 50%);
+
+	--bg-body: #f4f6fa;
+	--bg-card: #ffffff;
+	--bg-card-hover: #fafbff;
+	--bg-elevated: #ffffff;
+	--bg-inset: #eff1f5;
+	--bg-glass: rgba(255, 255, 255, 0.85);
+	--bg-glass-border: rgba(8, 196, 168, 0.1);
+	--bg-surface: rgba(255, 255, 255, 0.6);
+
+	/* ── Semantic Mappings (Light Mode) ──── */
+	--primary-50: var(--teal-50);
+	--primary-100: var(--teal-100);
+	--primary-200: var(--teal-200);
+	--primary-300: var(--teal-300);
+	--primary-400: var(--teal-400);
+	--primary-500: var(--teal-500);
+	--primary-600: var(--teal-600);
+	--primary-700: var(--teal-700);
+	--primary-800: var(--teal-800);
+	--primary-900: var(--teal-900);
+
+	--accent-400: var(--amber-400);
+	--accent-500: var(--amber-500);
+	--accent-600: var(--amber-600);
+
+	--slate-50: #f8fafc;
+	--slate-100: #f1f5f9;
+	--slate-200: #e2e8f0;
+	--slate-300: #cbd5e1;
+	--slate-400: #94a3b8;
+	--slate-500: #64748b;
+	--slate-600: #475569;
+	--slate-700: #334155;
+
+	--danger-50: var(--rose-50);
+	--danger-400: var(--rose-400);
+	--danger-500: var(--rose-500);
+	--danger-600: var(--rose-600);
+	--warning-50: var(--amber-50);
+	--warning-400: var(--amber-400);
+	--warning-500: var(--amber-500);
+	--warning-600: var(--amber-600);
+	--success-50: var(--emerald-50);
+	--success-400: var(--emerald-400);
+	--success-500: var(--emerald-500);
+	--success-600: var(--emerald-600);
+	--slate-800: #1e293b;
+	--slate-900: #0f172a;
+
+	--gradient-primary: var(--gradient-brand);
+	--gradient-primary-hover: var(--gradient-brand-hover);
+	--gradient-success: linear-gradient(135deg, #10b981 0%, #059669 100%);
+	--shadow-primary: var(--shadow-glow-teal);
+	--shadow-primary-lg: var(--shadow-glow-teal-lg);
+	--shadow-success: 0 4px 14px rgba(16, 185, 129, 0.4);
+	--border-light: var(--border-subtle);
+
+	--text-primary: #181d2a;
+	--text-secondary: #4e5669;
+	--text-tertiary: #717a90;
+	--text-inverse: #ffffff;
+	--text-teal: #08c4a8;
+	--text-amber: #f59e0b;
+
+	--border-subtle: rgba(0, 0, 0, 0.04);
+	--border-medium: rgba(0, 0, 0, 0.08);
+	--border-teal: rgba(8, 196, 168, 0.3);
+	--border-amber: rgba(251, 191, 36, 0.4);
+
+	--shadow-xs: 0 1px 3px rgba(0, 0, 0, 0.05);
+	--shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+	--shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+	--shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.1);
+	--shadow-xl: 0 24px 60px rgba(0, 0, 0, 0.12);
+	--shadow-glow-teal:
+		0 0 20px rgba(8, 196, 168, 0.2), 0 0 60px rgba(8, 196, 168, 0.1);
+	--shadow-glow-amber:
+		0 0 20px rgba(251, 191, 36, 0.2), 0 0 60px rgba(251, 191, 36, 0.1);
+	--shadow-glow-teal-lg:
+		0 4px 24px rgba(8, 196, 168, 0.3), 0 0 80px rgba(8, 196, 168, 0.15);
+	--shadow-glass:
+		0 8px 32px rgba(8, 196, 168, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+/* ── Dark Mode Overrides ─────────────── */
+[data-theme="dark"] {
+	color-scheme: dark;
+	--gradient-dark: linear-gradient(135deg, #181d2a 0%, #252b3b 100%);
+	--gradient-dark-card: linear-gradient(145deg, #1e2435 0%, #161b28 100%);
+
+	--gradient-mesh:
+		radial-gradient(at 15% 25%, rgba(8, 196, 168, 0.07) 0%, transparent 50%),
+		radial-gradient(at 85% 15%, rgba(251, 191, 36, 0.05) 0%, transparent 50%),
+		radial-gradient(at 50% 80%, rgba(8, 196, 168, 0.04) 0%, transparent 50%);
+
+	--bg-body: #0e111b;
+	--bg-card: #161b28;
+	--bg-card-hover: #1a2030;
+	--bg-elevated: #1e2435;
+	--bg-inset: #121620;
+	--bg-glass: rgba(22, 27, 40, 0.8);
+	--bg-glass-border: rgba(255, 255, 255, 0.06);
+	--bg-surface: rgba(30, 36, 53, 0.6);
+
+	/* ── Semantic Mappings (Dark Mode) ───── */
+
+	--slate-50: #0f172a;
+	--slate-100: #1e293b;
+	--slate-200: #334155;
+	--slate-300: #475569;
+	--slate-400: #64748b;
+	--slate-500: #94a3b8;
+	--slate-600: #cbd5e1;
+	--slate-700: #e2e8f0;
+	--slate-800: #f1f5f9;
+	--slate-900: #f8fafc;
+
+	--primary-50: var(--teal-900);
+	--primary-100: var(--teal-800);
+	--primary-200: var(--teal-700);
+	--primary-300: var(--teal-600);
+	--primary-400: var(--teal-500);
+	--primary-500: var(--teal-400);
+	--primary-600: var(--teal-300);
+	--primary-700: var(--teal-200);
+	--primary-800: var(--teal-100);
+	--primary-900: var(--teal-50);
+
+	--accent-400: var(--amber-400);
+	--accent-500: var(--amber-500);
+	--accent-600: var(--amber-600);
+	--danger-50: #4c0519;
+	--danger-400: #e11d48;
+	--danger-500: #f43f5e;
+	--danger-600: #fb7185;
+	--warning-50: #451a03;
+	--warning-400: #d97706;
+	--warning-500: #f59e0b;
+	--warning-600: #fbbf24;
+	--success-50: #022c22;
+	--success-400: #059669;
+	--success-500: #10b981;
+	--success-600: #34d399;
+	--gradient-success: linear-gradient(135deg, #10b981 0%, #059669 100%);
+	--shadow-primary: var(--shadow-glow-teal);
+	--shadow-primary-lg: var(--shadow-glow-teal-lg);
+	--shadow-success: 0 4px 14px rgba(16, 185, 129, 0.4);
+	--border-light: var(--border-subtle);
+
+	--text-primary: #f0f2f7;
+	--text-secondary: #a8afc0;
+	--text-tertiary: #636c82;
+	--text-inverse: #0e111b;
+	--text-teal: #52f5d8;
+	--text-amber: #fcd34d;
+
+	--border-subtle: rgba(255, 255, 255, 0.06);
+	--border-medium: rgba(255, 255, 255, 0.1);
+
+	--shadow-xs: 0 1px 3px rgba(0, 0, 0, 0.3);
+	--shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+	--shadow-md: 0 4px 16px rgba(0, 0, 0, 0.5);
+	--shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.6);
+	--shadow-xl: 0 24px 60px rgba(0, 0, 0, 0.7);
+	--shadow-glass:
+		0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Base Body Transition for smooth dark mode toggle */
+body {
+	transition:
+		background-color var(--transition-normal),
+		color var(--transition-normal);
+}
