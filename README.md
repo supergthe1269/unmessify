@@ -1,52 +1,112 @@
 # UNMESSIFY
 
-UNMESSIFY is a React app for hostel/mess meal budget management. It helps users set monthly credit limits, track spending, plan meals, and get smart meal combo suggestions from live mess menu data.
+UNMESSIFY is a React-based web app for **hostel/mess meal budget management**.  
+It helps students stay within monthly food credits by tracking meal spending, planning ahead, and offering budget-aware meal suggestions from live menu data.
 
-## Features
+---
 
-- Dashboard with monthly progress, safe-limit indicators, and burn-rate projection
-- Smart Suggestions with budget-aware meal combo generation
-- Menu Planner calendar for planning upcoming meals
-- Guest mode with quick budget calculator
-- Local persistence and optional cloud sync for meal plans
+## ✨ Features
 
-## Tech Stack
+- **Budget Dashboard**
+  - Monthly credit tracking
+  - Safe-limit indicators
+  - Burn-rate projection
 
-- React 19
-- React Router
-- Recharts for analytics visualizations
-- Firebase for authentication/cloud integration
-- IndexedDB (via idb) and local storage fallback
-- Create React App tooling
+- **Smart Suggestions**
+  - Budget-aware meal combo recommendations
+  - Helps optimize spending while preserving meal variety
 
-## Setup
+- **Menu Planner**
+  - Calendar-based meal planning for upcoming days
+
+- **Guest Mode**
+  - Quick budget calculator without full account setup
+
+- **Data Persistence**
+  - Local-first storage with IndexedDB
+  - Optional cloud sync integration
+
+---
+
+## 🧱 Tech Stack
+
+- **Frontend:** React 19, React Router, React Bootstrap, Bootstrap
+- **Charts & Analytics:** Recharts
+- **Persistence:** IndexedDB (`idb`) + localStorage fallback
+- **Backend/Cloud Integration:** Firebase
+- **Tooling:** Create React App (`react-scripts`)
+
+---
+
+## 📁 Project Structure
+
+```text
+src/
+  App.jsx            Main app layout and routing shell
+  components/        Reusable UI components
+  context/           State providers (auth, user, menu, transactions, theme)
+  pages/             Route-level views (Dashboard, Planner, Suggestions, etc.)
+  services/          API, cloud sync, storage services
+  styles/            App and page-level styles
+  utils/             Budget/recommendation utility logic
+```
+
+Other notable directories/files:
+
+```text
+public/              Static assets and base HTML template
+docs/                Project documentation assets
+firebase.json        Firebase Hosting config (with SPA rewrites)
+.firebaserc          Firebase project aliases/config
+```
+
+---
+
+## 🚀 Getting Started
 
 ### Prerequisites
 
-- Node.js 18+ recommended
-- npm 9+ recommended
+- **Node.js:** 18+ recommended  
+- **npm:** 9+ recommended
 
-### Install
+### Install dependencies
 
 ```bash
 npm install
 ```
 
-### Run In Development
+### Run locally
 
 ```bash
 npm start
 ```
 
-### Build For Production
+App runs in development mode on the default CRA dev server.
+
+### Build for production
 
 ```bash
 npm run build
 ```
 
-## Deploy (Firebase Hosting)
+---
 
-This project is pre-configured for Firebase Hosting with SPA rewrites.
+## 🧪 Available Scripts
+
+From `package.json`:
+
+- `npm start` – Start development server
+- `npm run build` – Create production build
+- `npm test` – Run tests
+- `npm run eject` – Eject CRA configuration
+- `npm run hosting:deploy` – Build and deploy to Firebase Hosting
+- `npm run hosting:preview` – Build and deploy to Firebase preview channel
+
+---
+
+## 🌐 Deployment (Firebase Hosting)
+
+This project is configured for **single-page app (SPA)** hosting via Firebase.
 
 ### One-time setup
 
@@ -54,7 +114,7 @@ This project is pre-configured for Firebase Hosting with SPA rewrites.
 npx firebase-tools login
 ```
 
-### Deploy to production
+### Deploy production
 
 ```bash
 npm run hosting:deploy
@@ -66,27 +126,22 @@ npm run hosting:deploy
 npm run hosting:preview
 ```
 
-### Important auth step
+### Important authentication step (after first deploy)
 
-After first deploy, add your hosting domain in Firebase Console:
+In Firebase Console:
 
-1. Firebase Console -> Authentication -> Settings -> Authorized domains
-2. Add `<project-id>.web.app` and `<project-id>.firebaseapp.com`
-3. Add custom domain too if you configure one
+1. Go to **Authentication → Settings → Authorized domains**
+2. Add:
+   - `<project-id>.web.app`
+   - `<project-id>.firebaseapp.com`
+3. Add your custom domain (if used)
 
-## Project Structure
+---
 
-```text
-src/
-	components/      Reusable UI components and illustrations
-	context/         App state providers (auth, user, menu, transactions, theme)
-	pages/           Route-level pages (Dashboard, MenuPlanner, Suggestions, etc.)
-	services/        API, cloud sync, and storage services
-	styles/          Global and page-level styles
-	utils/           Budget and recommendation algorithms
-```
+## 📝 Notes
 
-## Notes
+- Build artifacts are intentionally excluded from source control.
+- Menu data is fetched dynamically through the configured API service in `src/services`.
+- Firebase configuration and environment-specific setup should be validated before production deployment.
 
-- The build output directory is intentionally not tracked in source.
-- Menu data is fetched dynamically from the configured API endpoint in the mess API service.
+---
