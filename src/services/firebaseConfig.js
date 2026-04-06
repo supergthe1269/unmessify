@@ -3,13 +3,30 @@ import { initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 
+// Validate that all required Firebase environment variables are present
+const _required = [
+  'REACT_APP_FIREBASE_API_KEY',
+  'REACT_APP_FIREBASE_AUTH_DOMAIN',
+  'REACT_APP_FIREBASE_PROJECT_ID',
+  'REACT_APP_FIREBASE_STORAGE_BUCKET',
+  'REACT_APP_FIREBASE_MESSAGING_SENDER_ID',
+  'REACT_APP_FIREBASE_APP_ID',
+];
+const _missing = _required.filter((key) => !process.env[key]);
+if (_missing.length > 0) {
+  throw new Error(
+    `Missing required Firebase environment variables: ${_missing.join(', ')}. ` +
+    'Copy .env.example to .env.local and fill in the values.'
+  );
+}
+
 const firebaseConfig = {
-  apiKey: "AIzaSyA3ITw9TM3WETUBEq-w3f9T-DnWQxNhhyY",
-  authDomain: "project-16541.firebaseapp.com",
-  projectId: "project-16541",
-  storageBucket: "project-16541.firebasestorage.app",
-  messagingSenderId: "92871201934",
-  appId: "1:92871201934:web:47d75ecade933cad9025df"
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
 };
 
 // Initialize Firebase
