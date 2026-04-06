@@ -1,0 +1,22 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ── User documents (/users/{uid}) ──────────────────────────────────────────
+    // Each user may only read and write their own document.
+    // The caller must be authenticated AND must be signed in with a
+    // @vitstudent.ac.in email address (server-verified via the JWT token),
+    // so client-side domain filtering alone is never the only gate.
+    match /users/{uid} {
+      allow read, write: if request.auth != null
+                         && request.auth.uid == uid
+                         && request.auth.token.email.matches('^[^@]+@vitstudent\\.ac\\.in$');
+    }
+
+    // ── Default deny ──────────────────────────────────────────────────────────
+    // All other paths are denied unless explicitly allowed above.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
